@@ -250,9 +250,191 @@ paste("The positive signals mean the variables hold positive influecne on ydum, 
 paste("For the intercept, X1 and X2, all the three models hold 0.001 significant level")
 paste("But for X3, the Probit and Logit models hold 0.01 significant level. But for LPM, the X3 is not significant.")
 #Exercise 8
-# install.packages("mfx")
-library(mfx)
 Datause<- as.data.frame(cbind(ydum, X1, X2, X3))
+# probitmfest function is from the website about the mfx package and I changed some parts to fit this question
+probitmfxest <-
+  function(formula, data, atmean = TRUE, robust = FALSE, clustervar1 = NULL, 
+           clustervar2 = NULL, start = NULL, control = list()){
+    
+    if(is.null(formula)){
+      stop("formula is missing")
+    }
+    if(!is.data.frame(data)){
+      stop("data arguement must contain data.frame object")
+    }
+    
+    # cluster sort part
+    if(is.null(clustervar1) & !is.null(clustervar2)){
+      stop("use clustervar1 arguement before clustervar2 arguement")
+    }    
+    if(!is.null(clustervar1)){
+      if(is.null(clustervar2)){
+        if(!(clustervar1 %in% names(data))){
+          stop("clustervar1 not in data.frame object")
+        }    
+        data = data.frame(model.frame(formula, data, na.action=NULL),data[,clustervar1])
+        names(data)[dim(data)[2]] = clustervar1
+        data=na.omit(data)
+      }
+      if(!is.null(clustervar2)){
+        if(!(clustervar1 %in% names(data))){
+          stop("clustervar1 not in data.frame object")
+        }    
+        if(!(clustervar2 %in% names(data))){
+          stop("clustervar2 not in data.frame object")
+        }    
+        data = data.frame(model.frame(formula, data, na.action=NULL),
+                          data[,c(clustervar1,clustervar2)])
+        names(data)[c(dim(data)[2]-1):dim(data)[2]] = c(clustervar1,clustervar2)
+        data=na.omit(data)
+      }
+    }
+    
+    fit = glm(formula, data=data, family = binomial(link = "probit"), x=T,
+              start = start, control = control)
+    
+    # terms needed
+    x1 = model.matrix(fit)
+    if (any(alias <- is.na(coef(fit)))) {
+      x1 <- x1[, !alias, drop = FALSE]
+    }
+    xm = as.matrix(colMeans(x1))
+    be = as.matrix(na.omit(coef(fit)))
+    k1 = length(na.omit(coef(fit)))
+    xb = t(xm) %*% be
+    fxb = ifelse(atmean==TRUE, dnorm(xb), mean(dnorm(x1 %*% be)))
+    
+    # get variances
+    vcv = vcov(fit)
+    
+    if(robust){
+      if(is.null(clustervar1)){
+        # white correction
+        vcv = vcovHC(fit, type = "HC0")
+      } else {
+        if(is.null(clustervar2)){
+          vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=NULL)
+        } else {
+          vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=clustervar2)
+        }
+      }
+    }
+    
+    if(robust==FALSE & is.null(clustervar1)==FALSE){
+      if(is.null(clustervar2)){
+        vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=NULL)
+      } else {
+        vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=clustervar2)
+      }
+    }
+    
+    mfx = data.frame(mfx=fxb*be, se=NA)
+    
+    # get standard errors
+    if(atmean){
+      gr = as.numeric(fxb)*(diag(k1) - as.numeric(xb) *(be %*% t(xm)))
+      mfx$se = sqrt(diag(gr %*% vcv %*% t(gr)))            
+    } else {
+      gr = apply(x1, 1, function(x){
+        as.numeric(as.numeric(dnorm(x %*% be))*(diag(k1) - as.numeric(x %*% be)*(be %*% t(x))))
+      })
+      gr = matrix(apply(gr,1,mean),nrow=k1)
+      mfx$se = sqrt(diag(gr %*% vcv %*% t(gr)))                
+    }
+    output = list(fit=fit, mfx=mfx)
+    return(output)
+  }
+# logitmfest function is from the website about the mfx package and I changed some parts to fit this question
+logitmfxest <-
+  function(formula, data, atmean = TRUE, robust = FALSE, clustervar1 = NULL, 
+           clustervar2 = NULL, start = NULL, control = list()){
+    
+    if(is.null(formula)){
+      stop("formula is missing")
+    }
+    if(!is.data.frame(data)){
+      stop("data arguement must contain data.frame object")
+    }
+    # cluster sort part
+    if(is.null(clustervar1) & !is.null(clustervar2)){
+      stop("use clustervar1 arguement before clustervar2 arguement")
+    }    
+    if(!is.null(clustervar1)){
+      if(is.null(clustervar2)){
+        if(!(clustervar1 %in% names(data))){
+          stop("clustervar1 not in data.frame object")
+        }    
+        data = data.frame(model.frame(formula, data, na.action=NULL),data[,clustervar1])
+        names(data)[dim(data)[2]] = clustervar1
+        data=na.omit(data)
+      }
+      if(!is.null(clustervar2)){
+        if(!(clustervar1 %in% names(data))){
+          stop("clustervar1 not in data.frame object")
+        }    
+        if(!(clustervar2 %in% names(data))){
+          stop("clustervar2 not in data.frame object")
+        }    
+        data = data.frame(model.frame(formula, data, na.action=NULL),
+                          data[,c(clustervar1,clustervar2)])
+        names(data)[c(dim(data)[2]-1):dim(data)[2]] = c(clustervar1,clustervar2)
+        data=na.omit(data)
+      }
+    }
+    fit = glm(formula, data=data, family = binomial(link = "logit"), x=T, 
+              start = start, control = control)    
+    
+    # terms needed
+    x1 = model.matrix(fit)
+    if (any(alias <- is.na(coef(fit)))) {
+      x1 <- x1[, !alias, drop = FALSE]
+    }
+    xm = as.matrix(colMeans(x1))
+    be = as.matrix(na.omit(coef(fit)))
+    k1 = length(na.omit(coef(fit)))
+    xb = t(xm) %*% be
+    fxb = ifelse(atmean==TRUE, plogis(xb)*(1-plogis(xb)), mean(plogis(x1 %*% be)*(1-plogis(x1 %*% be))))  
+    # get variances
+    vcv = vcov(fit)
+    
+    if(robust){
+      if(is.null(clustervar1)){
+        # white correction
+        vcv = vcovHC(fit, type = "HC0")
+      } else {
+        if(is.null(clustervar2)){
+          vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=NULL)
+        } else {
+          vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=clustervar2)
+        }
+      }
+    }
+    
+    if(robust==FALSE & is.null(clustervar1)==FALSE){
+      if(is.null(clustervar2)){
+        vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=NULL)
+      } else {
+        vcv = clusterVCV(data=data, fm=fit, cluster1=clustervar1,cluster2=clustervar2)
+      }
+    }
+    
+    mfx = data.frame(mfx=fxb*be, se=NA)
+    
+    # get standard errors
+    if(atmean){
+      gr = (as.numeric(fxb))*(diag(k1) + as.numeric(1 - 2*plogis(xb))*(be %*% t(xm)))
+      mfx$se = sqrt(diag(gr %*% vcv %*% t(gr)))            
+    } else {
+      gr = apply(x1, 1, function(x){
+        as.numeric(as.numeric(plogis(x %*% be)*(1-plogis(x %*% be)))*
+                     (diag(k1) - (1 - 2*as.numeric(plogis(x %*% be)))*(be %*% t(x))))
+      })  
+      gr = matrix(apply(gr,1,mean),nrow=k1)
+      mfx$se = sqrt(diag(gr %*% vcv %*% t(gr)))                
+    }
+    output = list(fit=fit, mfx=mfx)
+    return(output)
+  }
 paste("The answers of Exercise 8 are in the tables below")
-probitmfx(formula=ydum~X1+X2+X3, data=Datause)
-logitmfx(formula=ydum~X1+X2+X3, data=Datause)
+probitmfxest(formula=ydum~X1+X2+X3, data=Datause)
+logitmfxest(formula=ydum~X1+X2+X3, data=Datause)
