@@ -1,0 +1,392 @@
+> #Exercise 1
+[1] "The number of students is 340823"
+[1] "The number of schools is 640"
+[1] "The number of programs is 32"
+[1] "The number of choices is 5546"
+[1] "The number of missing test score is 179887"
+[1] "The number of Apply to the same school (different programs) is 5546"
+[1] "The number of Apply to less than 6 choices is 18954"
+
+
+
+> #Exercise 2
+[1] "The answer for Exercise 2 is Choicescore"
+> head(Choicescore, 20)
+    schoolcode           choice      X score agey male
+1        10101 10101Agriculture 230518   288   15    1
+7        10101 10101Agriculture 230756   288   14    0
+13       10101 10101Agriculture 230824   288   19    1
+19       10101 10101Agriculture 230386   289   17    0
+25       10101 10101Agriculture 230627   291   16    1
+31       10101 10101Agriculture 230893   292   16    0
+37       10101 10101Agriculture 230927   293   16    0
+43       10101 10101Agriculture 230694   294   16    1
+49       10101 10101Agriculture 230578   295   19    1
+55       10101 10101Agriculture 230512   295   17    1
+61       10101 10101Agriculture 230546   296   15    0
+67       10101 10101Agriculture 230427   297   15    0
+73       10101 10101Agriculture 230655   298   17    1
+79       10101 10101Agriculture 230637   298   16    1
+85       10101 10101Agriculture 230918   298   17    1
+91       10101 10101Agriculture 230464   299   16    1
+97       10101 10101Agriculture 230695   299   16    1
+103      10101 10101Agriculture 230505   300   16    1
+109      10101 10101Agriculture 230816   302   20    1
+115      10101 10101Agriculture 230801   303   19    0
+      choicepgm           jssdistrict rankplace cutoff
+1   Agriculture    Accra Metropolitan         3    288
+7   Agriculture    Accra Metropolitan         3    288
+13  Agriculture    Accra Metropolitan         3    288
+19  Agriculture          Kumasi Metro         1    288
+25  Agriculture          Kumasi Metro         4    288
+31  Agriculture    Ga West (Amasaman)         3    288
+37  Agriculture                  Tema         4    288
+43  Agriculture    Ga West (Amasaman)         4    288
+49  Agriculture    Accra Metropolitan         2    288
+55  Agriculture   Wassa West (Tarkwa)         3    288
+61  Agriculture    Accra Metropolitan         3    288
+67  Agriculture    Accra Metropolitan         1    288
+73  Agriculture    Accra Metropolitan         1    288
+79  Agriculture Mfantsiman (Saltpond)         2    288
+85  Agriculture    Accra Metropolitan         4    288
+91  Agriculture Mfantsiman (Saltpond)         2    288
+97  Agriculture    Accra Metropolitan         4    288
+103 Agriculture    Ga West (Amasaman)         3    288
+109 Agriculture    Ga West (Amasaman)         1    288
+115 Agriculture    Ga West (Amasaman)         2    288
+     quality size                             schoolname
+1   309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+7   309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+13  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+19  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+25  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+31  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+37  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+43  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+49  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+55  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+61  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+67  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+73  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+79  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+85  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+91  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+97  309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+103 309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+109 309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+115 309.0889   45 EBENEZER SENIOR HIGH. SCHOOL, DANSOMAN
+           sssdistrict    ssslong   ssslat
+1   Accra Metropolitan -0.1971153 5.607396
+7   Accra Metropolitan -0.1971153 5.607396
+13  Accra Metropolitan -0.1971153 5.607396
+19  Accra Metropolitan -0.1971153 5.607396
+25  Accra Metropolitan -0.1971153 5.607396
+31  Accra Metropolitan -0.1971153 5.607396
+37  Accra Metropolitan -0.1971153 5.607396
+43  Accra Metropolitan -0.1971153 5.607396
+49  Accra Metropolitan -0.1971153 5.607396
+55  Accra Metropolitan -0.1971153 5.607396
+61  Accra Metropolitan -0.1971153 5.607396
+67  Accra Metropolitan -0.1971153 5.607396
+73  Accra Metropolitan -0.1971153 5.607396
+79  Accra Metropolitan -0.1971153 5.607396
+85  Accra Metropolitan -0.1971153 5.607396
+91  Accra Metropolitan -0.1971153 5.607396
+97  Accra Metropolitan -0.1971153 5.607396
+103 Accra Metropolitan -0.1971153 5.607396
+109 Accra Metropolitan -0.1971153 5.607396
+115 Accra Metropolitan -0.1971153 5.607396
+
+
+
+
+
+> #Exercise 3
+[1] "The answer for Exercise 3 is the variable Distance in the dataframe Dis"
+> head(Dis, 20)
+                                 jssdistrict schoolcode
+19679                           Agona Swedru      30403
+20031                           Agona Swedru      30403
+428    Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+461    Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+15     Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+161    Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+17     Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+33     Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+21640         Ajumako/Enyan/Essiam (Ajumako)      30403
+21848         Ajumako/Enyan/Essiam (Ajumako)      30403
+128201            Twifo Hemang (Twifo Praso)      30403
+128284            Twifo Hemang (Twifo Praso)      30403
+37302            Awutu/Efutu/Senya (Winneba)      30403
+37395            Awutu/Efutu/Senya (Winneba)      30403
+96339                  Mfantsiman (Saltpond)      30403
+96639                  Mfantsiman (Saltpond)      30403
+60     Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+141    Abura/Asebu/Kwamankese (Abura Dunkwa)      30403
+96923                  Mfantsiman (Saltpond)      30403
+97032                  Mfantsiman (Saltpond)      30403
+                    choice      X score agey male
+19679    30403General Arts 179888   249   16    0
+20031    30403General Arts 179888   249   16    0
+428       30403Agriculture 179890   254   19    1
+461       30403Agriculture 179890   254   19    1
+15     30403Home Economics 179891   277   17    0
+161    30403Home Economics 179891   277   17    0
+17       30403General Arts 179892   236   16    0
+33       30403General Arts 179892   236   16    0
+21640    30403General Arts 179893   237   18    1
+21848    30403General Arts 179893   237   18    1
+128201    30403Agriculture 179894   262   16    0
+128284    30403Agriculture 179894   262   16    0
+37302    30403General Arts 179895   249   15    1
+37395    30403General Arts 179895   249   15    1
+96339    30403General Arts 179896   229   17    0
+96639    30403General Arts 179896   229   17    0
+60       30403General Arts 179897   219   18    1
+141      30403General Arts 179897   219   18    1
+96923     30403Agriculture 179898   227   17    0
+97032     30403Agriculture 179898   227   17    0
+            choicepgm rankplace cutoff  quality size
+19679    General Arts         5    208 242.0857   35
+20031    General Arts         5    208 242.0857   35
+428       Agriculture         2    219 241.9333   15
+461       Agriculture         2    219 241.9333   15
+15     Home Economics         4    215 248.3750    8
+161    Home Economics         4    215 248.3750    8
+17       General Arts         3    208 242.0857   35
+33       General Arts         3    208 242.0857   35
+21640    General Arts         1    208 242.0857   35
+21848    General Arts         1    208 242.0857   35
+128201    Agriculture         6    219 241.9333   15
+128284    Agriculture         6    219 241.9333   15
+37302    General Arts         5    208 242.0857   35
+37395    General Arts         5    208 242.0857   35
+96339    General Arts         1    208 242.0857   35
+96639    General Arts         1    208 242.0857   35
+60       General Arts         6    208 242.0857   35
+141      General Arts         6    208 242.0857   35
+96923     Agriculture         3    219 241.9333   15
+97032     Agriculture         3    219 241.9333   15
+                                 schoolname
+19679       ABAKRAMPA SENIOR HIGH TECHNICAL
+20031  <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+428    <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+461         ABAKRAMPA SENIOR HIGH TECHNICAL
+15     <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+161         ABAKRAMPA SENIOR HIGH TECHNICAL
+17          ABAKRAMPA SENIOR HIGH TECHNICAL
+33     <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+21640       ABAKRAMPA SENIOR HIGH TECHNICAL
+21848  <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+128201      ABAKRAMPA SENIOR HIGH TECHNICAL
+128284 <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+37302       ABAKRAMPA SENIOR HIGH TECHNICAL
+37395  <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+96339  <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+96639       ABAKRAMPA SENIOR HIGH TECHNICAL
+60          ABAKRAMPA SENIOR HIGH TECHNICAL
+141    <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+96923       ABAKRAMPA SENIOR HIGH TECHNICAL
+97032  <d8>?ABAKRAMPA SENIOR HIGH TECHNICAL
+                                 sssdistrict   ssslong
+19679  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+20031  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+428    Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+461    Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+15     Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+161    Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+17     Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+33     Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+21640  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+21848  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+128201 Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+128284 Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+37302  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+37395  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+96339  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+96639  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+60     Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+141    Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+96923  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+97032  Abura/Asebu/Kwamankese (Abura Dunkwa) -1.197088
+         ssslat    point_x  point_y Distance
+19679  5.130001 -0.7552425 5.617353 45.40499
+20031  5.130001 -0.7552425 5.617353 45.40499
+428    5.130001 -1.1970884 5.130001  0.00000
+461    5.130001 -1.1970884 5.130001  0.00000
+15     5.130001 -1.1970884 5.130001  0.00000
+161    5.130001 -1.1970884 5.130001  0.00000
+17     5.130001 -1.1970884 5.130001  0.00000
+33     5.130001 -1.1970884 5.130001  0.00000
+21640  5.130001 -1.0053846 5.401725 22.96873
+21848  5.130001 -1.0053846 5.401725 22.96873
+128201 5.130001 -1.5597034 5.572999 39.52487
+128284 5.130001 -1.5597034 5.572999 39.52487
+37302  5.130001 -0.5086389 5.544896 55.41003
+37395  5.130001 -0.5086389 5.544896 55.41003
+96339  5.130001 -1.0064534 5.201528 14.03343
+96639  5.130001 -1.0064534 5.201528 14.03343
+60     5.130001 -1.1970884 5.130001  0.00000
+141    5.130001 -1.1970884 5.130001  0.00000
+96923  5.130001 -1.0064534 5.201528 14.03343
+97032  5.130001 -1.0064534 5.201528 14.03343
+
+
+
+
+
+
+> #Exercise 4
+[1] "For 1st Rankplace"
+[1] "The average of the cutoff is 281.666696851018"
+[1] "The sd of the cutoff is 58.8290705689274"
+[1] "The average of the Quality is 308.362561581667"
+[1] "The sd of the Quality is 52.1712365763513"
+[1] "The average of the Distance is 35.1811012348586"
+[1] "The sd of the Distance is 52.8207408451784"
+[1] "For 2nd Rankplace"
+[1] "The average of the cutoff is 275.943484190162"
+[1] "The sd of the cutoff is 51.1390749676321"
+[1] "The average of the Quality is 301.936452507742"
+[1] "The sd of the Quality is 44.5486524805607"
+[1] "The average of the Distance is 34.0217710653266"
+[1] "The sd of the Distance is 48.4151155841386"
+[1] "For 3rd Rankplace"
+[1] "The average of the cutoff is 261.26926286509"
+[1] "The sd of the cutoff is 43.8014658133546"
+[1] "The average of the Quality is 288.566888990669"
+[1] "The sd of the Quality is 37.492231591051"
+[1] "The average of the Distance is 28.6654303706568"
+[1] "The sd of the Distance is 43.3276802542669"
+[1] "For 4th Rankplace"
+[1] "The average of the cutoff is 247.957375629723"
+[1] "The sd of the cutoff is 37.6479586381162"
+[1] "The average of the Quality is 276.922107837596"
+[1] "The sd of the Quality is 31.7422473327192"
+[1] "The average of the Distance is 22.8660114943869"
+[1] "The sd of the Distance is 38.671561364868"
+[1] "For 5th Rankplace"
+[1] "The average of the cutoff is 211.090909090909"
+[1] "The sd of the cutoff is 8.18112838937557"
+[1] "The average of the Quality is 251.778416288314"
+[1] "The sd of the Quality is 12.7789805612124"
+[1] "The average of the Distance is 32.3881553859471"
+[1] "The sd of the Distance is 30.5839074535372"
+[1] "For 6th Rankplace"
+[1] "The average of the cutoff is 211.181939353549"
+[1] "The sd of the cutoff is 8.20046057879195"
+[1] "The average of the Quality is 249.449253381274"
+[1] "The sd of the Quality is 11.2054957202403"
+[1] "The average of the Distance is 31.9538100119105"
+[1] "The sd of the Distance is 29.7359428251178"
+> #=========================================
+> Quantiles<- Dis[order(Dis$score, Dis$X),]
+[1] "For 1st quantile"
+[1] "The average of the cutoff is 216.727445079747"
+[1] "The sd of the cutoff is 13.7504012401409"
+[1] "The average of the Quality is 250.98769286784"
+[1] "The sd of the Quality is 12.2768746968854"
+[1] "The average of the Distance is 25.97192694149"
+[1] "The sd of the Distance is 42.6813644020342"
+[1] "For 2nd quantile"
+[1] "The average of the cutoff is 228.874516582679"
+[1] "The sd of the cutoff is 22.3503980789819"
+[1] "The average of the Quality is 261.097918819516"
+[1] "The sd of the Quality is 17.9526811040484"
+[1] "The average of the Distance is 27.4219464315344"
+[1] "The sd of the Distance is 45.9810011218846"
+[1] "For 3rd quantile"
+[1] "The average of the cutoff is 243.377261994572"
+[1] "The sd of the cutoff is 32.1635880454268"
+[1] "The average of the Quality is 273.609336668229"
+[1] "The sd of the Quality is 26.5693976879494"
+[1] "The average of the Distance is 28.7161280998983"
+[1] "The sd of the Distance is 46.5872322494831"
+[1] "For 4th quantile"
+[1] "The average of the cutoff is 266.199677056391"
+[1] "The sd of the cutoff is 52.0582572606955"
+[1] "The average of the Quality is 293.943176433258"
+[1] "The sd of the Quality is 45.4150688237614"
+[1] "The average of the Distance is 31.1064247813155"
+[1] "The sd of the Distance is 46.6952354382574"
+
+
+
+
+> #Exercise 5
+> head(Y, 20)
+ [1]  1.9032843 -3.1350882  3.8277599  1.5970899  1.9943875
+ [6]  4.5373519 -4.1700785 -4.7640866 -0.3120093 -2.4801004
+[11] -1.9839194  0.9860258  2.1066723  1.9385475  0.8920039
+[16]  3.2090729 -3.6149303 -1.3973371 -0.9666107 -3.7247639
+> head(ydum, 20)
+ [1] 1 0 1 1 1 1 0 0 1 0 0 1 1 1 1 1 0 0 0 0
+
+
+
+
+
+> #Exercise 6
+[1] "The correlation coefficient between Y and X1 is 0.209429106418655"
+[1] "The regression coefficient between Y and X1 is 1.19218588123404"
+[1] "The difference from 1.2 is -0.0078141187659575"
+The regression result is Y= 2.550967 + 1.192186 X1+ -0.9046174 X2+ 0.1099006 X3+e
+The coefficients are 2.550967 1.192186 -0.9046174 0.1099006
+The standard errors in this OLS are 0.04093615 0.01748154 0.002925907 0.02176734
+
+
+
+
+
+> #Exercise 7
+> #Probit Model========================================
+'log Lik.' -2161.466 (df=4)
+   True parameter R: GLM : est R: own :se R: GLM :se
+        2.5509674    2.9654092 0.10011006 0.10011170
+X1      1.1921859    1.2343270 0.04458552 0.04463045
+X2     -0.9046174   -0.9199287 0.01886599 0.01884960
+X3      0.1099006    0.1354812 0.04694495 0.04705767
+
+> #Logit Model========================================
+'log Lik.' -2167.151 (df=4)
+   True parameter R: GLM : est R: own :se R: GLM :se
+        2.5509674    5.3212472 0.18728370 0.10011170
+X1      1.1921859    2.2190576 0.08304348 0.04463045
+X2     -0.9046174   -1.6529784 0.03763265 0.01884960
+X3      0.1099006    0.2439212 0.08434958 0.04705767
+> #linear probability model========================================
+   True parameter     Probit      Logit         LPM
+        2.5509674  2.9654092  5.3212472  0.89111066
+X1      1.1921859  1.2343270  2.2190576  0.14521037
+X2     -0.9046174 -0.9199287 -1.6529784 -0.10485191
+X3      0.1099006  0.1354812  0.2439212  0.01078067
+
+[1] "Conclusion: the positive and negative signal of coefficients are same"
+[1] "For the intercept, X1 and X2, all the three models hold 0.001 significant level"
+[1] "But for X3, the Probit and Logit models hold 0.01 significant level. But for LPM, the X3 is not significant."
+
+
+
+
+
+
+> #Exercise 8
+> # Probit Model
+Marginal Effects:
+        dF/dx  Std. Err.        z   P>|z|    
+X1  0.4924149  0.0177859  27.6857 < 2e-16 ***
+X2 -0.3669907  0.0075174 -48.8187 < 2e-16 ***
+X3  0.0539974  0.0186723   2.8918 0.00383 ** 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> # Logit Model
+Marginal Effects:
+        dF/dx  Std. Err.       z   P>|z|    
+X1  0.5547272  0.0207585  26.723 < 2e-16 ***
+X2 -0.4132169  0.0093871 -44.020 < 2e-16 ***
+X3  0.0608904  0.0209894   2.901 0.00372 ** 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
