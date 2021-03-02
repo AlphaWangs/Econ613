@@ -251,6 +251,48 @@ paste("For the intercept, X1 and X2, all the three models hold 0.001 significant
 paste("But for X3, the Probit and Logit models hold 0.01 significant level. But for LPM, the X3 is not significant.")
 #Exercise 8
 Datause<- as.data.frame(cbind(ydum, X1, X2, X3))
+# Use the "mfx" package
+> # install.packages("mfx")
+> library(mfx)
+> paste("The answers of Exercise 8 are in the tables below")
+[1] "The answers of Exercise 8 are in the tables below"
+> probitmfx(formula=ydum~X1+X2+X3, data=Datause)
+Call:
+probitmfx(formula = ydum ~ X1 + X2 + X3, data = Datause)
+
+Marginal Effects:
+        dF/dx  Std. Err.        z   P>|z|    
+X1  0.4924149  0.0177859  27.6857 < 2e-16 ***
+X2 -0.3669907  0.0075174 -48.8187 < 2e-16 ***
+X3  0.0539974  0.0186723   2.8918 0.00383 ** 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+dF/dx is for discrete change for the following variables:
+
+[1] "X3"
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> logitmfx(formula=ydum~X1+X2+X3, data=Datause)
+Call:
+logitmfx(formula = ydum ~ X1 + X2 + X3, data = Datause)
+
+Marginal Effects:
+        dF/dx  Std. Err.       z   P>|z|    
+X1  0.5547272  0.0207585  26.723 < 2e-16 ***
+X2 -0.4132169  0.0093871 -44.020 < 2e-16 ***
+X3  0.0608904  0.0209894   2.901 0.00372 ** 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+dF/dx is for discrete change for the following variables:
+
+[1] "X3"
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred
+# If don't use the package
 # probitmfest function is from the website about the mfx package and I changed some parts to fit this question
 probitmfxest <-
   function(formula, data, atmean = TRUE, robust = FALSE, clustervar1 = NULL, 
