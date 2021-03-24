@@ -319,7 +319,7 @@ colnames(tab3) <- c("intercept", "PBB_Stk", "PFl_Stk", "PHse_Stk", "PGen_Stk", "
 tab3
 # 5.3 Compute the test statistics:
 tab4<- tab2[,-2]
-HM<- (tab4-tab3)%*% (var(tab4)-var(tab3)) %*% t(tab4-tab3)
+HM<- -2* (tab4-tab3)%*% (var(tab4)-var(tab3)) %*% t(tab4-tab3)
 HM
 # 5.4 Conclude on IIA
 chisq.test(abs(HM))
